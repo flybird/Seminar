@@ -62,13 +62,13 @@ void Bullet::stop(void)
     {
         _strategy->setBullet(nullptr);
         
-        log("Bullet stop, 'strategy' retain number:%d", _strategy->getReferenceCount());
+//        log("Bullet stop, 'strategy' retain number:%d", _strategy->getReferenceCount());
         CC_SAFE_RELEASE_NULL(_strategy);
     }
     this->unscheduleUpdate();
     this->removeFromParent();
     
-    log("Bullet stop, 'bullet' retain number:%d", this->getReferenceCount());
+//    log("Bullet stop, 'bullet' retain number:%d", this->getReferenceCount());
 }
 
 void Bullet::update(float delta)

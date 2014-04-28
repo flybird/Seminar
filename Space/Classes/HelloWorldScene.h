@@ -17,7 +17,8 @@ public:
     SpriteBatchNode *_batchNode;
     Sprite *_ship;
     
-    void menuCloseCallback(Ref* pSender);
+    void shoot1Click(Ref* pSender);
+    void shoot2Click(Ref* pSender);
     
     CREATE_FUNC(HelloWorldScene);
 };

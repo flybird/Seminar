@@ -24,15 +24,9 @@ bool HelloWorldScene::init()
         return false;
     }
     
-//    Size visibleSize = Director::getInstance()->getVisibleSize();
-//    Point origin = Director::getInstance()->getVisibleOrigin();
     _winSize = Director::getInstance()->getWinSize();
     
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Sprites.plist");
-    
-//    auto background = Sprite::create("background.png");
-//    background->setPosition(Point(_winSize.width/2, _winSize.height/2));
-//    this->addChild(background, -1);
     
     _batchNode = SpriteBatchNode::create("Sprites.pvr.ccz");
     this->addChild(_batchNode, 1);
@@ -45,17 +39,17 @@ bool HelloWorldScene::init()
     // Normal
     auto closeItem1 = MenuItemImage::create("CloseNormal.png",
                                            "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorldScene::shoou1Click, this));
+                                           CC_CALLBACK_1(HelloWorldScene::shoot1Click, this));
 	closeItem1->setPosition(Point(_winSize.width/2 - 40, 40));
     
     auto closeItem2 = MenuItemImage::create("CloseNormal.png",
                                             "CloseSelected.png",
-                                            CC_CALLBACK_1(HelloWorldScene::shoou2Click, this));
+                                            CC_CALLBACK_1(HelloWorldScene::shoot2Click, this));
 	closeItem2->setPosition(Point(_winSize.width/2 + 0, 40));
     
     auto closeItem3 = MenuItemImage::create("CloseNormal.png",
                                             "CloseSelected.png",
-                                            CC_CALLBACK_1(HelloWorldScene::shoou3Click, this));
+                                            CC_CALLBACK_1(HelloWorldScene::shoot3Click, this));
 	closeItem3->setPosition(Point(_winSize.width/2 + 40, 40));
     
     auto menu = Menu::create(closeItem1, closeItem2, closeItem3, NULL);
@@ -83,7 +77,7 @@ bool HelloWorldScene::init()
 }
 
 //Normal
-void HelloWorldScene::shoou1Click(Ref* pSender)
+void HelloWorldScene::shoot1Click(Ref* pSender)
 {
     //Step1.建立子彈
     auto *shipLaser = Bullet::createWithFrameName("laserbeam_blue.png");
@@ -91,7 +85,7 @@ void HelloWorldScene::shoou1Click(Ref* pSender)
     this->addChild(shipLaser, 0);
     
     //Step2.建立移動策略
-#warning 建立移動策略
+#warning **建立移動策略
     Strategy *strategy = new StrategyDirectly();
     strategy->init();
     strategy->autorelease();
@@ -104,7 +98,7 @@ void HelloWorldScene::shoou1Click(Ref* pSender)
     shipLaser->start();
 }
 
-void HelloWorldScene::shoou2Click(Ref* pSender)
+void HelloWorldScene::shoot2Click(Ref* pSender)
 {
     //建立子彈
     auto *shipLaser = Bullet::createWithFrameName("laserbeam_blue.png");
@@ -121,10 +115,10 @@ void HelloWorldScene::shoou2Click(Ref* pSender)
     shipLaser->start();
 }
 
-void HelloWorldScene::shoou3Click(Ref* pSender)
+void HelloWorldScene::shoot3Click(Ref* pSender)
 {
-#warning 建立複合子彈
-    for (int i = 0; i<3; i++)
+#warning **建立複合子彈
+    for (int i = 0; i<4; i++)
     {
         //建立子彈
         auto *shipLaser = Bullet::createWithFrameName("laserbeam_blue.png");
@@ -144,6 +138,9 @@ void HelloWorldScene::shoou3Click(Ref* pSender)
             case 2:
                 strategy = new StrategyDown();
                 break;
+            case 3:
+                strategy = new StrategyBack();
+                break;
             default:
                 strategy = new StrategyDirectly();
                 break;
@@ -158,7 +155,7 @@ void HelloWorldScene::shoou3Click(Ref* pSender)
 }
 
 
-#warning 讓子彈轉彎
+#warning **讓子彈轉彎
 //Change Strategy
 void HelloWorldScene::c1Click(Ref* pSender)
 {

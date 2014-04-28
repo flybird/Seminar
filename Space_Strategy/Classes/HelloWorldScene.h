@@ -17,9 +17,9 @@ public:
     SpriteBatchNode *_batchNode;
     Sprite *_ship;
     
-    void shoou1Click(Ref* pSender);
-    void shoou2Click(Ref* pSender);
-    void shoou3Click(Ref* pSender);
+    void shoot1Click(Ref* pSender);
+    void shoot2Click(Ref* pSender);
+    void shoot3Click(Ref* pSender);
     
     void c1Click(Ref* pSender);
     void c2Click(Ref* pSender);
