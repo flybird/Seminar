@@ -15,6 +15,9 @@
 USING_NS_CC;
 
 class Bullet;
+
+#warning !!!Strategy其實必需是一個介面，but我想加一些其它的功能所以沒有百分之遵守真正的規格
+
 class Strategy:public Ref
 {
 protected:

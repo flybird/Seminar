@@ -75,6 +75,7 @@ void Bullet::update(float delta)
 {
     if (_strategy)
     {
+#warning !!!將移動的方法封裝起來
         _strategy->move();
     }
 }

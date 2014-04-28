@@ -187,7 +187,7 @@ void HelloWorldScene::c2Click(Ref* pSender)
         strategy->init();
         strategy->autorelease();
         
-#warning 重制演算法!!
+#warning !!!重制演算法
         bullet->resetStrategy(strategy);
     }
 }
