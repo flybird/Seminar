@@ -85,19 +85,22 @@ bool HelloWorldScene::init()
 //Normal
 void HelloWorldScene::shoou1Click(Ref* pSender)
 {
-    //建立子彈
+    //Step1.建立子彈
     auto *shipLaser = Bullet::createWithFrameName("laserbeam_blue.png");
     shipLaser->setPosition(_ship->getPosition() + Point(4, 0));
     this->addChild(shipLaser, 0);
     
-    //建立移動策略
-#warning 建立移動策略1
+    //Step2.建立移動策略
+#warning 建立移動策略
     Strategy *strategy = new StrategyDirectly();
     strategy->init();
     strategy->autorelease();
+
+#warning 設定移動策略
+    //!!!!!
     shipLaser->setStrategy(strategy);
     
-    //開始移動
+    //Step3開始移動
     shipLaser->start();
 }
 
@@ -109,7 +112,6 @@ void HelloWorldScene::shoou2Click(Ref* pSender)
     this->addChild(shipLaser, 0);
     
     //建立移動策略
-#warning 建立移動策略2
     Strategy *strategy = new StrategyUP();
     strategy->init();
     strategy->autorelease();

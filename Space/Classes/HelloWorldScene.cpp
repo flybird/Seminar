@@ -64,7 +64,6 @@ void HelloWorldScene::menuCloseCallback(Ref* pSender)
 //    shipLaser->setPosition(_ship->getPosition() + Point(4, 0));
 //    this->addChild(shipLaser, 0);
     
-    
     Point points[6] = {Point(10,0), Point(6,.8f), Point(7,2), Point(6,-.8f), Point(7,-2), Point(-8,0)};
     for (int i=0; i<6; i++)
     {
